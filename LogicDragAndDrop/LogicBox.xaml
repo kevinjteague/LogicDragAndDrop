@@ -6,15 +6,28 @@
              xmlns:local="clr-namespace:LogicDragAndDrop"
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="100">
-    <Border x:Name="logicBorder" Background="Red" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="2" MouseRightButtonUp="logicBorder_MouseRightButtonUp">
-        <StackPanel x:Name="logicStack" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Border x:Name="leftDrop" Grid.Column="0" Grid.Row="0" Height="15" Width="15" Background="Black" VerticalAlignment="Center" AllowDrop="True" DragOver="box_DragOver" Drop="box_Drop">
+    <Border BorderThickness="1" BorderBrush="Black">
+        <Grid x:Name="logicGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Border x:Name="logicBorder"  Background="Red" Grid.ColumnSpan="3" Grid.Row="0" Width="{Binding ActualWidth, ElementName=logicGrid}"  HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="1" MouseRightButtonUp="logicBorder_MouseRightButtonUp">
+                <Label x:Name="logicLabel" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
+            <Separator Grid.ColumnSpan="3" Grid.Row="1"/>
+            <Border x:Name="leftDrop" Grid.Column="0" Grid.Row="2" BorderThickness="1" BorderBrush="Black" Height="15" Width="15" Margin="20" Background="Transparent" VerticalAlignment="Center" AllowDrop="True" DragOver="box_DragOver" Drop="box_Drop">
                 <Button x:Name="leftBool" Click="Bool_Click"/>
             </Border>
-            <Label x:Name="logicLabel" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"/>
-            <Border x:Name="rightDrop" Grid.Column="2" Grid.Row="0" Height="15" Width="15" Background="Black" VerticalAlignment="Center" AllowDrop="True" DragOver="box_DragOver" Drop="box_Drop">
+            <Border x:Name="rightDrop" Grid.Column="2" Grid.Row="2" BorderThickness="1" BorderBrush="Black" Height="15" Width="15" Margin="20" Background="Transparent" VerticalAlignment="Center" AllowDrop="True" DragOver="box_DragOver" Drop="box_Drop">
                 <Button x:Name="rightBool" Click="Bool_Click"/>
             </Border>
-        </StackPanel>
+        </Grid>
     </Border>
 </UserControl>

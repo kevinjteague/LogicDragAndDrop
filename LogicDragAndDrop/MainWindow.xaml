@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LogicDragAndDrop"
         mc:Ignorable="d"
-        Title="Logic Drag and Drop" Height="450" Width="800">
+        Title="Logic Drag and Drop" Height="800" Width="800">
     <StackPanel Orientation="Horizontal">
         <StackPanel Margin="10, 10, 10, 10">
             <local:LogicBox logicOperator="AND"/>
@@ -14,10 +14,15 @@
             <local:LogicBox logicOperator="NAND"/>
             <local:LogicBox logicOperator="NOR"/>
             <local:LogicBox logicOperator="EQUALS"/>
+            <Separator/>
             <Button x:Name="evalButton" Click="TryEvaluate">Evaluate Expression</Button>
             <TextBlock x:Name="evalResult"/>
+            <Separator/>
+            <Label HorizontalAlignment="Center" VerticalAlignment="Center">Targets</Label>
+            <Separator/>
+
         </StackPanel>
         <Separator  Margin="20, 0, 20, 0" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Visibility="Visible"/>
-        <StackPanel x:Name="expressionStack" Background="Transparent" Height="450" Width="500" AllowDrop="True" DragOver="stack_DragOver" Drop="stack_Drop"/>
+        <StackPanel x:Name="expressionStack" Background="Transparent" Height="800" Width="500" AllowDrop="True" DragOver="stack_DragOver" Drop="stack_Drop"/>
     </StackPanel>
 </Window>
